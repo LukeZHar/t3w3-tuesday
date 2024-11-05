@@ -56,28 +56,48 @@ function removeCostumeFromDataList(targetItemToRemove) {
     renderData();
 }
 
-function addCostumeToDataList(event, targetInputID) {
-    // Find the form from the event 
+function addCostumeToDataList(event, targetInputId) {
+    // Find the form element that needs validation
+    let formElement = document.getElementById("costumesInputForm");
+
+    // use the form element.checkValidity() method to save result
+    let isFormValid = formElement.checkValidity();
+
+    // do conditional based on the result
+    if (!isFormValid) {
+        formElement.reportValidity();
+        return;
+    }
     // prevent form from doing its default behavior (refreshing the page)
     event.preventDefault();
     console.log("Add costume to the list function is running!!");
 
     // find the input text field based on targetInputID
-    let targetTextInput = document.getElementById(targetInputID);
+    let targetTextInput = document.getElementById(targetInputId);
 
     // get the value from the input text field
     console.log(targetTextInput.value);
 
     // append or push to the dataArray
     dataArray.push(targetTextInput.value);
+    
+    // Alert after submitting - Method 1
+    // alert("Costume added to the list!" + targetTextInput.value);
 
     // clear the input text field
     targetTextInput.value = "";
 
+    // Focus on the input text field
+    targetTextInput.focus();
+
+    // Alert after submitting - Method 2
+    alert("Costume added to the list: " + dataArray[dataArray.length - 1]);
+
     // renderData function call to update the page
     renderData();
+
 }
 
-let formInputButton = document.getElementById("costumesInputForm");
+let formInputButton = document.getElementById("formInputButton");
 
 formInputButton.addEventListener("click", (event) => addCostumeToDataList(event, "costumeInputText"));
