@@ -27,10 +27,15 @@ dataArray.forEach((costume) => {
     // Add the list item to the list
     newCostumeEntry.innerText = costume;
 
-    // Add a button to the list item
+    // Add a button to the list item to remove it
+    let removeButton = document.createElement("button");
+
+    // Add placeholder name to the button
+    removeButton.innerText = "Remove " + costume;
 
     // Add the element to the container
     costumesContainerList.appendChild(newCostumeEntry);
+    costumesContainerList.appendChild(removeButton);
 });
 
 
