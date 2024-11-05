@@ -7,10 +7,15 @@
 </head>
 <body>
     <h1>Halloween Costumes</h1>
-    <section id="costumesContainer">
+    <form id="costumesInputForm">
+        <label for="costumeNameInput">Enter a costume name: </label>
+        <input type="text" id="costumeInputText" placeholder="Add a costume to your collection" name="costumeInputText">
+        <input type="submit" id="formInputButton">
+    </form>
+    <section id="costumeContainer">
         
     </section>
-
     <script src="./scripts/dataList.js"></script>
+    <script>renderData();</script>
 </body>
 </html>

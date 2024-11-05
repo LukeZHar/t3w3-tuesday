@@ -4,3 +4,7 @@
 - Creating and Deleting 
 - Editing elements
 
+# T3W3-Thursday
+- DOM events
+- Forms
+- Netlify Deployment
